@@ -31,11 +31,13 @@ export default class Channel {
         }
     }
 
-    sendMessage(msg) {
-        console.log(`The channel ${this.name} is sending the message \"${msg}\" to its ${this.subscribers.length} subscribers`);
-        this.subscribers.forEach(subscriber => {
-            subscriber.send(msg);
-        });
+    sendMessage(subjects, msg) {
+        if (subjects.includes(this.subject)) {
+            console.log(`The channel ${this.name} is sending the message \"${msg}\" to its ${this.subscribers.length} subscribers`);
+            this.subscribers.forEach(subscriber => {
+                subscriber.send(msg);
+            });
+        }
     }
 
 }

@@ -28,19 +28,10 @@ export default class Publisher {
         }
     }
 
-    broadcast(msg) {
+    broadcast(subjects, msg) {
         console.log(`The publisher ${this.name} is performing a full boradcast to its ${this.channels.length} attached channels`);
         this.channels.forEach(channel => {
-            channel.sendMessage(msg);
-        });
-    }
-
-    broadcastBySubject(subject, msg) {
-        console.log(`The publisher ${this.name} is performing a subject broadcast to its ${this.channels.length} attached channels with the subject \"${subject}\"`);
-        this.channels.forEach(channel => {
-            if (channel.subject === subject) {
-                channel.sendMessage(msg);
-            }
+            channel.sendMessage(subjects, msg);
         });
     }
 }

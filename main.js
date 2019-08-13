@@ -21,12 +21,12 @@ let stemPublisher = new Publisher( id++, 'stem-publisher', [science_chan, tech_c
 
 console.log('Full Broadcast by Science+Tech Publisher to all channels');
 console.log('------------------------------------------------------------');
-stPublisher.broadcast('a science message');
+stPublisher.broadcast(['science','technology'], 'a science and technology message');
 console.log();
 
 console.log('Subject Broadcast by Science+Tech Publisher to all channels with \"science\" subject');
 console.log('------------------------------------------------------------');
-stPublisher.broadcastBySubject('science', 'a science message');
+stPublisher.broadcast(['science'], 'a science message');
 console.log();
 
 console.log("Complete")
